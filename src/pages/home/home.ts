@@ -29,7 +29,7 @@ export class HomePage {
 
     this.data = {};
     // [Step 2 - Creating Tables]
-    /*this.storage = new SQLite();
+    this.storage = new SQLite();
     this.storage.openDatabase({
       name: 'ionic.offline',
       location: 'default'
@@ -42,10 +42,10 @@ export class HomePage {
         tempMin INT,
         tempMax INT
       ))`, {});
-    });*/
+    });
 
     // [Step 5 - Tying it Together]
-    /*this.getForecast(this.getToday()).then((data) => {
+    this.getForecast(this.getToday()).then((data) => {
       if (data) {
         // obtained forecast from database
         this.data = data;
@@ -53,7 +53,7 @@ export class HomePage {
         // could not get forecast from database, go to network
         this.fetchForecasts();
       }
-    });*/
+    });
 
   }
 
@@ -139,7 +139,7 @@ export class HomePage {
   }
 
   // [Step 4 - Retrieving Data]
-  /*getForecast(date: string) {
+  getForecast(date: string) {
     return this.storage.executeSql("SELECT * FROM forecasts WHERE date = ?", { date }).then((resp) => {
       if (resp.res.rows.length > 0) {
         for (var i = 0; i < resp.res.rows.length; i++) {
@@ -148,11 +148,11 @@ export class HomePage {
         }
       }
     });
-  }*/
+  }
 
 
   // [Step 3 - Saving Data]
-  /*saveForecasts = (forecasts) => {
+  saveForecasts = (forecasts) => {
     let query = "INSERT OR REPLACE INTO forecasts VALUES (?, ?, ?, ?, ?, ?)";
     for (let forecast of forecasts) {
       this.storage.executeSql(query, [
@@ -165,7 +165,7 @@ export class HomePage {
       ]);
     }
     return forecasts;
-  }*/
+  }
 
 
   // UTILITY
